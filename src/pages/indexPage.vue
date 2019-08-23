@@ -19,7 +19,7 @@ export default {
 <style lang="scss" scoped>
     .index-container {
         height: calc(100vh - 1.2rem);
-        background: #409EFF;
+        background: rgba(64, 158, 255,0.4);
         display: flex;
         justify-content: center;
         align-items: center;

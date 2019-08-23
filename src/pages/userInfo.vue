@@ -52,7 +52,7 @@ export default {
     //当宽度小于769生效
     @media screen and (max-width: 769px){
         .user-info{
-            height: 12rem;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;

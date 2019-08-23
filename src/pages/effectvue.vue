@@ -5,8 +5,8 @@
             <div class="notes">毕业帮</div>
             <div class="ec-content">
                 <el-carousel trigger="click" height="8rem">
-                <el-carousel-item v-for="item in 4" :key="item">
-                    <h3>{{ item }}</h3>
+                <el-carousel-item v-for="(img,i) in imgs" :key="i">
+                    <img class="show-img" :src="img.imgurl" :alt="i">
                 </el-carousel-item>
                 </el-carousel>
             </div>
@@ -18,20 +18,31 @@ import 'element-ui/lib/theme-chalk/index.css'
 export default {
     data(){
         return {
+            imgs: [{imgurl: require("../../static/content/1.png")},
+                   {imgurl: require("../../static/content/2.png")},
+                   {imgurl: require("../../static/content/3.png")},
+                   {imgurl: require("../../static/content/4.png")},]
         }
     }
 }
 </script>
 <style lang="scss" scoped>
     .effet-container {
-        height: 12rem;
+        height: 100vh;
         background: #409EFF;
         
     }
+    .ec-content{
+        margin: 0 20px;
+    }
     h2 {
-            font-weight: 800;
-            line-height: 2rem;
-        }
+        font-weight: 800;
+        line-height: 2rem;
+    }
+    .show-img{
+        width: 100%;
+        height: 100%;
+    }
     .effet-content{
         display: block;
     }
@@ -54,12 +65,13 @@ export default {
         .effet-content{
             display: flex;
             .notes{
-                width: 200px;
+                width: 8rem;
                 background: #fff;
-                margin: 0 20px;
+                margin-left:  20px;
             }
             .ec-content{
                 flex: 1;
+                margin: 0 20px;
             }
         }
     }

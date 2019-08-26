@@ -45,6 +45,7 @@
 /* 毕业 */
 .icon-biye:before {
   content: "\e643";
+  color: #fff;
 }
 
 .icon-kecheng:before {
@@ -81,6 +82,7 @@
 /* 步骤条 */
 .icon-buzhoutiao:before {
   content: "\e725";
+  color: rgb(236, 115, 78);
 }
 
 .icon-circle-error:before {
@@ -102,7 +104,7 @@
 .icon-yinanche:before {     
   content: "\e605";
 }
-
+/* 演示 */
 .icon-yanshi1:before {
   content: "\e6b7";
 }

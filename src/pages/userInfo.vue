@@ -1,14 +1,14 @@
 <template>
-    <div class="user-info">
+    <div class="user-info" ref="userPage">
         <div class="user-form">
-            <el-form label-position="top" label-width="0" :model="userInf">
-                <el-form-item label="名称">
+            <el-form label-position="right" label-width="150px" :model="userInf">
+                <el-form-item label="姓名">
                     <el-input v-model="userInf.name"></el-input>
                 </el-form-item>
-                <el-form-item label="活动区域">
+                <el-form-item label="联系方式">
                     <el-input v-model="userInf.region"></el-input>
                 </el-form-item>
-                <el-form-item label="活动形式">
+                <el-form-item label="题目名称">
                     <el-input v-model="userInf.type"></el-input>
                 </el-form-item>
                 <el-form-item>
@@ -27,7 +27,8 @@ export default {
                 name: '',
                 region: '',
                 type: ''
-            }
+            },
+            userHeight: ''
         }
     },
     methods: {
@@ -36,12 +37,16 @@ export default {
         resetForm() {
             this.userInf = {name: '',region: '',type: ''}
         }
+    },
+    mounted(){
+        this.userHeight = this.$refs.userPage.offsetHeight
+        localStorage.setItem('userHeight',this.userHeight)
     }
 }
 </script>
 <style lang="scss" scoped>
     .user-info{
-        height: 12rem;
+        height: calc(100vh - 1.2rem);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -52,7 +57,8 @@ export default {
     //当宽度小于769生效
     @media screen and (max-width: 769px){
         .user-info{
-            height: 100vh;
+            margin-top: 1.2rem;
+            height: calc(100vh - 1.2rem);
             display: flex;
             justify-content: center;
             align-items: center;

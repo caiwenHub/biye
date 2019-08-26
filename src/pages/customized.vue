@@ -1,14 +1,19 @@
 <template>
-    <div class="customized">
+    <div class="customized" ref="customPage">
         <h2>定制</h2>
         <div class="c_content">
             <ul>
                 <li v-for="(content,i) in contents" :key="i">{{content.item}}</li>
             </ul>
-            <div>
+            <div class="tips">
                 <ul>
                     <li v-for="(tip,i) in tips_icons" :key="i" class="tip">
-                        <i :class="tip.icon"></i><span>{{tip.name}}</span>
+                        <div class="tip-content">
+                            <i :class="tip.icon"></i>
+                            <span>{{tip.name}}</span>
+                        </div>
+                        <span class="el-icon-d-arrow-right" v-if="tip.name!=='解决疑点'"></span>
+                        <!-- <span class="iconfont icon-buzhoutiao"></span> -->
                     </li>
                 </ul>
             </div>
@@ -34,12 +39,16 @@ export default {
                         {name: '尾款交付', icon: 'iconfont icon-weikuan'},
                         {name: '解决疑点', icon: 'iconfont icon-yanshi1'}]
         }
+    },
+    mounted(){
+        this.customHeight = this.$refs.customPage.offsetHeight
+        localStorage.setItem('customHeight',this.customHeight)
     }
 }
 </script>
 <style lang="scss" scoped>
     .customized {
-        height: 100vh;
+        height: calc(100vh - 1.2rem);
         h2 {
             font-weight: 600;
             padding-left: 20px;
@@ -47,7 +56,6 @@ export default {
             text-align: left;
         }
         .c_content{
-            height: 10rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -58,8 +66,23 @@ export default {
                 }
             }
         }
-        .tip{
-            display: inline-block;
-        }   
+        .tips{
+            .tip{
+                display: inline-block;
+                .tip-content{
+                    padding: 0 0.1rem;
+                    display: inline-block;
+                    width: 1.8rem;
+                    line-height: 1.8rem;
+                    border-radius: .9rem;
+                    background-color: #F56C6C;
+                    color: #fff;
+                }
+                span {
+                    display: inline-block;
+                }
+            }   
+        }
+        
     }
 </style>

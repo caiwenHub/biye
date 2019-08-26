@@ -23,6 +23,8 @@ html{
 }
 body{
   font-size: 14px;
+  background: #f7f7f7;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 *{
   padding: 0;
